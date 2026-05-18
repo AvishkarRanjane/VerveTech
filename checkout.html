@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TechUse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚡ TechUse</a>
+            <button class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="custom-build.html">Build Now</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="checkout">
+            <h1>💳 Secure Checkout</h1>
+
+            <form id="checkout-form">
+                <div style="background: rgba(0,212,255,0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 3px solid var(--accent-cyan);">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">✓ Secure Payment</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Your information is protected with SSL encryption</p>
+                </div>
+
+                <h2 style="color: var(--accent-cyan); margin: 1.5rem 0 1rem 0; font-size: 1.2rem;">📋 Personal Information</h2>
+                
+                <div class="form-group">
+                    <label for="name">👤 Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">📧 Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+
+                <h2 style="color: var(--accent-cyan); margin: 1.5rem 0 1rem 0; font-size: 1.2rem;">🏠 Delivery Address</h2>
+
+                <div class="form-group">
+                    <label for="street">Street Address</label>
+                    <input type="text" id="street" name="street" placeholder="123 Main Street" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="New York" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">ZIP Code</label>
+                        <input type="text" id="zip" name="zip" placeholder="10001" required>
+                    </div>
+                </div>
+
+                <h2 style="color: var(--accent-cyan); margin: 1.5rem 0 1rem 0; font-size: 1.2rem;">💰 Payment Information</h2>
+
+                <div class="form-group">
+                    <label for="card">💳 Card Number</label>
+                    <input type="text" id="card" name="card" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Expiration Date</label>
+                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="cta-button" style="width: 100%; padding: 1rem; font-size: 1.1rem; margin-top: 1.5rem;">
+                    ✓ Complete Payment
+                </button>
+
+                <a href="cart.html" class="cta-button btn-secondary" style="width: 100%; padding: 1rem; text-align: center; display: block; margin-top: 1rem;">
+                    ← Back to Cart
+                </a>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TechUse. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

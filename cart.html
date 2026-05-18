@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - TechUse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cart-page">
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚡ TechUse</a>
+            <button class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="custom-build.html">Build Now</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart">
+            <h1>🛒 Your Shopping Cart</h1>
+            
+            <div id="cart-items">
+                <!-- Cart items loaded via JS -->
+            </div>
+
+            <div id="cart-summary">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; font-size: 1.4rem;">
+                    <span>Total:</span>
+                    <span style="color: var(--accent-cyan); font-weight: 700;">$<span id="total-price">0</span></span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <a href="shop.html" class="cta-button btn-secondary" style="text-align: center; display: block; padding: 1rem;">
+                        ← Continue Shopping
+                    </a>
+                    <a href="checkout.html" class="cta-button" style="text-align: center; display: block; padding: 1rem;">
+                        Proceed to Checkout →
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TechUse. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

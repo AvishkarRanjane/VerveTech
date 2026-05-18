@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - TechUse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚡ TechUse</a>
+            <button class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="custom-build.html">Build Now</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 4rem 2rem;">
+            <div class="hero-content">
+                <h1>Explore All Categories</h1>
+                <p>Browse our complete collection of tech accessories and components</p>
+            </div>
+        </section>
+
+        <!-- CATEGORY SELECTOR -->
+        <section style="padding: 3rem 0; width: 100%; margin: 0;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="info-card" onclick="showCategory('mobile')" style="cursor: pointer;">
+                    <div class="info-card-icon">📱</div>
+                    <h3>Mobile Phones</h3>
+                    <p>Premium cases, protectors, and accessories for all phone models</p>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Explore</button>
+                </div>
+
+                <div class="info-card" onclick="showCategory('laptop')" style="cursor: pointer;">
+                    <div class="info-card-icon">💻</div>
+                    <h3>Laptops</h3>
+                    <p>Sleeves, stands, chargers, and cooling solutions for laptops</p>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Explore</button>
+                </div>
+
+                <div class="info-card" onclick="showCategory('pc')" style="cursor: pointer;">
+                    <div class="info-card-icon">🖥️</div>
+                    <h3>Desktop PCs</h3>
+                    <p>Cases, cooling systems, and gaming peripherals</p>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Explore</button>
+                </div>
+
+                <div class="info-card" onclick="showCategory('tv')" style="cursor: pointer;">
+                    <div class="info-card-icon">📺</div>
+                    <h3>Smart TVs</h3>
+                    <p>Mounts, cables, remotes, and streaming devices</p>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Explore</button>
+                </div>
+
+                <div class="info-card" onclick="showCategory('smartwatch')" style="cursor: pointer;">
+                    <div class="info-card-icon">⌚</div>
+                    <h3>Smart Watches</h3>
+                    <p>Bands, screen protectors, chargers, and accessories</p>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Explore</button>
+                </div>
+
+                <div class="info-card" onclick="showCategory('accessories')" style="cursor: pointer;">
+                    <div class="info-card-icon">🎧</div>
+                    <h3>Accessories</h3>
+                    <p>Headphones, speakers, cables, and audio devices</p>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Explore</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORY DETAILS -->
+        <section id="category-details" style="padding: 3rem 0; width: 100%; margin: 0; display: none;">
+            <div id="category-content"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TechUse. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function showCategory(category) {
+            // Map categories to product categories
+            const categoryMap = {
+                mobile: ['case', 'grip', 'protector', 'bundle', 'accessory'],
+                laptop: ['laptop'],
+                pc: ['pc'],
+                tv: ['tv'],
+                smartwatch: ['smartwatch'],
+                accessories: ['accessory']
+            };
+
+            const selectedCategories = categoryMap[category];
+            const categoryProducts = products.filter(p => selectedCategories.includes(p.category));
+
+            const titles = {
+                mobile: '📱 Mobile Phone Accessories',
+                laptop: '💻 Laptop Accessories',
+                pc: '🖥️ Desktop PC Components',
+                tv: '📺 Smart TV Accessories',
+                smartwatch: '⌚ Smart Watch Accessories',
+                accessories: '🎧 Tech Accessories'
+            };
+
+            const descriptions = {
+                mobile: 'Everything you need to protect and personalize your smartphone',
+                laptop: 'Essential accessories for your portable workstation',
+                pc: 'Upgrade and customize your gaming or workstation PC',
+                tv: 'Complete your TV setup with essential accessories',
+                smartwatch: 'Personalize and protect your smart watch',
+                accessories: 'Audio and connectivity solutions for all devices'
+            };
+
+            const content = document.getElementById('category-content');
+            let html = `
+                <h2 class="section-title">${titles[category]}</h2>
+                <p class="section-subtitle">${descriptions[category]}</p>
+                
+                <div class="product-grid">
+            `;
+
+            categoryProducts.forEach(product => {
+                html += `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-content">
+                            <h3>${product.name}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">
+                                <span class="price">$${product.basePrice}</span>
+                            </div>
+                            <div style="display:flex; gap:0.5rem; margin-top:0.5rem;">
+                                <a href="product.html?id=${product.id}" class="cta-button" style="flex:1; text-align:center;">Customize</a>
+                                <button class="cta-button" onclick="addToCartFromCategory(${product.id}, '${product.name}', ${product.basePrice})" style="flex:0 0 auto;">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            content.innerHTML = html;
+            document.getElementById('category-details').style.display = 'block';
+            document.getElementById('category-details').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function addToCartFromCategory(id, name, price) {
+            addToCart(id);
+            showSuccessModal('Added to Cart!', `${name} - $${price} has been added to your cart!`);
+        }
+    </script>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

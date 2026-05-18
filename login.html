@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - TechUse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚡ TechUse</a>
+            <button class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="custom-build.html">Build Now</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-page">
+            <div class="login-container">
+                <div class="login-box">
+                    <div class="login-header">
+                        <h1>Welcome Back</h1>
+                        <p>Access your TechUse account</p>
+                    </div>
+
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="email">📧 Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">🔒 Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        </div>
+
+                        <button type="submit" class="cta-button" style="width: 100%;">Sign In</button>
+
+                        <div class="divider">OR</div>
+
+                        <button type="button" class="cta-button btn-secondary" style="width: 100%;">
+                            Sign in with Google
+                        </button>
+                    </form>
+
+                    <div class="signup-link">
+                        Don't have an account? 
+                        <span style="color: var(--accent-cyan); cursor: pointer;" onclick="document.getElementById('login-form').scrollIntoView();">
+                            Create one now
+                        </span>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem;">
+                            💡 Demo: Use any email and password to create/login to an account
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TechUse. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

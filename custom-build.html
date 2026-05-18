@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Custom Device - TechUse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚡ TechUse</a>
+            <button class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="custom-build.html">Build Now</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 4rem 2rem;">
+            <div class="hero-content">
+                <h1>🔧 Build Your Perfect Device</h1>
+                <p>Select a category and build exactly what you need</p>
+            </div>
+        </section>
+
+        <!-- STEP 1: Category Selection -->
+        <section id="step1" style="padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title" style="margin-bottom: 2rem;">Step 1: Choose Your Device</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                <div class="info-card" style="cursor: pointer; text-align: center;" onclick="selectCategory('phone')">
+                    <div class="info-card-icon">📱</div>
+                    <h3>Mobile Phone</h3>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Build</button>
+                </div>
+
+                <div class="info-card" style="cursor: pointer; text-align: center;" onclick="selectCategory('laptop')">
+                    <div class="info-card-icon">💻</div>
+                    <h3>Laptop</h3>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Build</button>
+                </div>
+
+                <div class="info-card" style="cursor: pointer; text-align: center;" onclick="selectCategory('pc')">
+                    <div class="info-card-icon">🖥️</div>
+                    <h3>Desktop PC</h3>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Build</button>
+                </div>
+
+                <div class="info-card" style="cursor: pointer; text-align: center;" onclick="selectCategory('tv')">
+                    <div class="info-card-icon">📺</div>
+                    <h3>Smart TV</h3>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Build</button>
+                </div>
+
+                <div class="info-card" style="cursor: pointer; text-align: center;" onclick="selectCategory('smartwatch')">
+                    <div class="info-card-icon">⌚</div>
+                    <h3>Smart Watch</h3>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Build</button>
+                </div>
+
+                <div class="info-card" style="cursor: pointer; text-align: center;" onclick="selectCategory('accessories')">
+                    <div class="info-card-icon">🎧</div>
+                    <h3>Audio Device</h3>
+                    <button class="cta-button" style="width: 100%; margin-top: 1rem;">Build</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- STEP 2: Part Selection -->
+        <section id="step2" style="display: none; padding: 3rem 2rem; max-width: 1200px; margin: 0 auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 class="section-title">Step 2: Select Your Components</h2>
+                <button class="cta-button btn-secondary" onclick="goBackToCategories()">← Change Category</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 350px; gap: 3rem;">
+                <!-- Parts Selection -->
+                <div id="parts-container"></div>
+
+                <!-- Summary Panel -->
+                <div style="background: var(--card-bg); padding: 2rem; border-radius: 15px; border: 1px solid var(--border-color); height: fit-content; position: sticky; top: 100px;">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 1.5rem;">Build Summary</h3>
+                    
+                    <div id="summary" style="margin-bottom: 1.5rem;">
+                        <!-- Summary will be added here -->
+                    </div>
+
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                            <span>Subtotal:</span>
+                            <span id="subtotal" style="color: var(--accent-cyan); font-weight: 600;">$0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                            <span>Tax (10%):</span>
+                            <span id="tax" style="color: var(--accent-cyan); font-weight: 600;">$0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; font-size: 1.3rem; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                            <span style="font-weight: 700;">Total:</span>
+                            <span id="total" style="color: var(--accent-cyan); font-weight: 700;">$0</span>
+                        </div>
+                        
+                        <button class="cta-button" style="width: 100%; padding: 1rem; margin-bottom: 0.5rem;" onclick="addBuildToCart()">
+                            🛒 Add to Cart
+                        </button>
+                        <button class="cta-button btn-secondary" style="width: 100%; padding: 1rem;" onclick="resetBuild()">
+                            🔄 Start Over
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TechUse. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const buildParts = {
+            phone: {
+                title: '📱 Build Your Mobile Phone',
+                categories: {
+                    'Body Style': [
+                        { id: 'body1', name: 'Aluminum Frame', price: 45 },
+                        { id: 'body2', name: 'Plastic Frame', price: 25 },
+                        { id: 'body3', name: 'Steel Frame', price: 55 }
+                    ],
+                    'Display': [
+                        { id: 'display1', name: 'AMOLED 120Hz', price: 120 },
+                        { id: 'display2', name: 'LCD 90Hz', price: 75 },
+                        { id: 'display3', name: 'Retina 60Hz', price: 50 }
+                    ],
+                    'Camera': [
+                        { id: 'camera1', name: 'Triple Camera (48MP+12MP+12MP)', price: 140 },
+                        { id: 'camera2', name: 'Dual Camera (48MP+12MP)', price: 95 },
+                        { id: 'camera3', name: 'Single Camera (48MP)', price: 60 }
+                    ],
+                    'Processor': [
+                        { id: 'proc1', name: 'Flagship Processor', price: 110 },
+                        { id: 'proc2', name: 'Mid-Range Processor', price: 65 },
+                        { id: 'proc3', name: 'Budget Processor', price: 35 }
+                    ],
+                    'Battery': [
+                        { id: 'battery1', name: '5000mAh Battery', price: 85 },
+                        { id: 'battery2', name: '4000mAh Battery', price: 60 },
+                        { id: 'battery3', name: '3000mAh Battery', price: 40 }
+                    ]
+                }
+            },
+            laptop: {
+                title: '💻 Build Your Laptop',
+                categories: {
+                    'Processor': [
+                        { id: 'proc1', name: 'Intel i9', price: 450 },
+                        { id: 'proc2', name: 'Intel i7', price: 300 },
+                        { id: 'proc3', name: 'Intel i5', price: 180 }
+                    ],
+                    'RAM': [
+                        { id: 'ram1', name: '32GB DDR4', price: 280 },
+                        { id: 'ram2', name: '16GB DDR4', price: 140 },
+                        { id: 'ram3', name: '8GB DDR4', price: 70 }
+                    ],
+                    'Storage': [
+                        { id: 'storage1', name: '2TB SSD', price: 200 },
+                        { id: 'storage2', name: '1TB SSD', price: 110 },
+                        { id: 'storage3', name: '512GB SSD', price: 65 }
+                    ],
+                    'Display': [
+                        { id: 'display1', name: '4K OLED', price: 380 },
+                        { id: 'display2', name: 'FHD IPS', price: 150 },
+                        { id: 'display3', name: 'HD TN', price: 80 }
+                    ],
+                    'Graphics': [
+                        { id: 'gpu1', name: 'RTX 4090', price: 1600 },
+                        { id: 'gpu2', name: 'RTX 3060', price: 500 },
+                        { id: 'gpu3', name: 'Integrated GPU', price: 0 }
+                    ]
+                }
+            },
+            pc: {
+                title: '🖥️ Build Your PC',
+                categories: {
+                    'Processor': [
+                        { id: 'proc1', name: 'Intel i9-13900K', price: 680 },
+                        { id: 'proc2', name: 'Intel i7-13700K', price: 420 },
+                        { id: 'proc3', name: 'Ryzen 7 7700X', price: 350 }
+                    ],
+                    'Motherboard': [
+                        { id: 'mobo1', name: 'Premium ATX', price: 280 },
+                        { id: 'mobo2', name: 'Mid-Range ATX', price: 150 },
+                        { id: 'mobo3', name: 'Budget ATX', price: 80 }
+                    ],
+                    'GPU': [
+                        { id: 'gpu1', name: 'RTX 4090', price: 1600 },
+                        { id: 'gpu2', name: 'RTX 4070', price: 600 },
+                        { id: 'gpu3', name: 'RTX 4060', price: 280 }
+                    ],
+                    'RAM': [
+                        { id: 'ram1', name: '64GB DDR5', price: 420 },
+                        { id: 'ram2', name: '32GB DDR5', price: 220 },
+                        { id: 'ram3', name: '16GB DDR5', price: 120 }
+                    ],
+                    'Storage': [
+                        { id: 'storage1', name: '2TB NVMe SSD', price: 180 },
+                        { id: 'storage2', name: '1TB NVMe SSD', price: 95 },
+                        { id: 'storage3', name: '500GB NVMe SSD', price: 55 }
+                    ],
+                    'Power Supply': [
+                        { id: 'psu1', name: '1200W Platinum', price: 280 },
+                        { id: 'psu2', name: '850W Gold', price: 150 },
+                        { id: 'psu3', name: '650W Bronze', price: 90 }
+                    ]
+                }
+            },
+            tv: {
+                title: '📺 Build Your TV Setup',
+                categories: {
+                    'TV Size': [
+                        { id: 'tv1', name: '85 inch 8K', price: 3500 },
+                        { id: 'tv2', name: '65 inch 4K', price: 1200 },
+                        { id: 'tv3', name: '55 inch FHD', price: 450 }
+                    ],
+                    'Wall Mount': [
+                        { id: 'mount1', name: 'Full Motion Arm', price: 150 },
+                        { id: 'mount2', name: 'Tilting Mount', price: 80 },
+                        { id: 'mount3', name: 'Fixed Mount', price: 40 }
+                    ],
+                    'Sound System': [
+                        { id: 'sound1', name: 'Soundbar + Subwoofer', price: 500 },
+                        { id: 'sound2', name: 'Soundbar', price: 250 },
+                        { id: 'sound3', name: 'Built-in Speakers', price: 0 }
+                    ],
+                    'Streaming Device': [
+                        { id: 'stream1', name: 'Premium 4K Box', price: 200 },
+                        { id: 'stream2', name: 'Standard HD Box', price: 100 },
+                        { id: 'stream3', name: 'None', price: 0 }
+                    ]
+                }
+            },
+            smartwatch: {
+                title: '⌚ Build Your Smart Watch',
+                categories: {
+                    'Case Material': [
+                        { id: 'case1', name: 'Titanium', price: 200 },
+                        { id: 'case2', name: 'Stainless Steel', price: 120 },
+                        { id: 'case3', name: 'Aluminum', price: 60 }
+                    ],
+                    'Band': [
+                        { id: 'band1', name: 'Leather Premium', price: 80 },
+                        { id: 'band2', name: 'Silicone Sport', price: 30 },
+                        { id: 'band3', name: 'Fabric', price: 20 }
+                    ],
+                    'Display': [
+                        { id: 'display1', name: 'AMOLED 1.4"', price: 150 },
+                        { id: 'display2', name: 'LCD 1.2"', price: 80 },
+                        { id: 'display3', name: 'E-ink', price: 40 }
+                    ],
+                    'Features': [
+                        { id: 'feat1', name: 'GPS + Heart Rate + Music', price: 200 },
+                        { id: 'feat2', name: 'Heart Rate + Fitness', price: 100 },
+                        { id: 'feat3', name: 'Basic Time', price: 0 }
+                    ]
+                }
+            },
+            accessories: {
+                title: '🎧 Build Your Audio Setup',
+                categories: {
+                    'Headphones': [
+                        { id: 'head1', name: 'Premium Over-Ear', price: 350 },
+                        { id: 'head2', name: 'Mid-Range On-Ear', price: 150 },
+                        { id: 'head3', name: 'Budget Earbuds', price: 40 }
+                    ],
+                    'Features': [
+                        { id: 'feat1', name: 'Active Noise Cancelling', price: 100 },
+                        { id: 'feat2', name: 'Passive Isolation', price: 30 },
+                        { id: 'feat3', name: 'No Isolation', price: 0 }
+                    ],
+                    'Connectivity': [
+                        { id: 'conn1', name: 'Bluetooth 5.3 + Wired', price: 50 },
+                        { id: 'conn2', name: 'Bluetooth 5.0', price: 20 },
+                        { id: 'conn3', name: 'Wired Only', price: 0 }
+                    ],
+                    'Battery': [
+                        { id: 'batt1', name: '60 Hour Battery', price: 80 },
+                        { id: 'batt2', name: '30 Hour Battery', price: 40 },
+                        { id: 'batt3', name: 'None (Wired)', price: 0 }
+                    ]
+                }
+            }
+        };
+
+        let currentBuild = {
+            category: '',
+            selectedParts: {}
+        };
+
+        function selectCategory(category) {
+            currentBuild.category = category;
+            currentBuild.selectedParts = {};
+            renderBuildParts(category);
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+            document.getElementById('step2').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderBuildParts(category) {
+            const data = buildParts[category];
+            const container = document.getElementById('parts-container');
+            let html = `<h3>${data.title}</h3><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">`;
+
+            for (const [categoryName, parts] of Object.entries(data.categories)) {
+                html += `
+                    <div style="background: var(--card-bg); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 1rem;">${categoryName}</h4>
+                `;
+                
+                parts.forEach(part => {
+                    html += `
+                        <label style="display: flex; align-items: center; margin-bottom: 0.8rem; cursor: pointer;">
+                            <input type="radio" name="${categoryName}" value="${part.id}" onchange="updateBuild('${categoryName}', '${part.name}', ${part.price})">
+                            <span style="margin-left: 0.8rem; flex: 1;">
+                                <strong>${part.name}</strong>
+                                <br>
+                                <small style="color: var(--text-muted);">+$${part.price}</small>
+                            </span>
+                        </label>
+                    `;
+                });
+
+                html += '</div>';
+            }
+
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function updateBuild(category, name, price) {
+            if (!currentBuild.selectedParts[category]) {
+                currentBuild.selectedParts[category] = { name: '', price: 0 };
+            }
+            currentBuild.selectedParts[category] = { name, price };
+            updateSummary();
+        }
+
+        function updateSummary() {
+            let summary = '';
+            let subtotal = 0;
+
+            for (const [category, part] of Object.entries(currentBuild.selectedParts)) {
+                if (part.name) {
+                    summary += `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.8rem; padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);">
+                            <span style="color: var(--text-muted); font-size: 0.9rem;">${part.name}</span>
+                            <span>+$${part.price}</span>
+                        </div>
+                    `;
+                    subtotal += part.price;
+                }
+            }
+
+            const tax = Math.round(subtotal * 0.1 * 100) / 100;
+            const total = subtotal + tax;
+
+            document.getElementById('summary').innerHTML = summary || '<p style="color: var(--text-muted);">Select components...</p>';
+            document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+            document.getElementById('tax').textContent = '$' + tax.toFixed(2);
+            document.getElementById('total').textContent = '$' + total.toFixed(2);
+        }
+
+        function addBuildToCart() {
+            const totalPrice = parseFloat(document.getElementById('total').textContent.replace('$', ''));
+            if (totalPrice === 0) {
+                showNotification('Please select components first', 'warning');
+                return;
+            }
+            
+            const buildName = buildParts[currentBuild.category].title;
+            addToCart(999 + Math.random(), 1); // Use custom ID
+            showSuccessModal('Custom Build Added!', `Your ${buildName} totaling $${totalPrice.toFixed(2)} has been added to your cart!`);
+        }
+
+        function goBackToCategories() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step1').style.display = 'block';
+            document.getElementById('step1').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetBuild() {
+            currentBuild = { category: '', selectedParts: {} };
+            goBackToCategories();
+        }
+    </script>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

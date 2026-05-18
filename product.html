@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Product - TechUse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">⚡ TechUse</a>
+            <button class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="custom-build.html">Build Now</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="customization">
+            <h1>✨ Customize Your Product</h1>
+            
+            <div class="customizer">
+                <div class="preview">
+                    <div id="product-preview">
+                        <img id="preview-image" src="https://via.placeholder.com/300x300?text=Product+Preview" alt="Preview" style="max-width: 100%; border-radius: 10px;">
+                        <div id="preview-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);"></div>
+                    </div>
+                </div>
+
+                <div class="options">
+                    <div class="form-group">
+                        <label>📸 Upload Custom Image</label>
+                        <input type="file" id="image-upload" accept="image/*">
+                    </div>
+
+                    <div class="form-group">
+                        <label>✍️ Add Custom Text</label>
+                        <input type="text" id="custom-text" placeholder="Enter your custom text here">
+                    </div>
+
+                    <div class="form-group">
+                        <label>🎨 Choose Font Style</label>
+                        <select id="font-select">
+                            <option value="Arial">Arial - Modern</option>
+                            <option value="Georgia">Georgia - Elegant</option>
+                            <option value="Courier New">Courier New - Technical</option>
+                            <option value="Comic Sans MS">Comic Sans - Playful</option>
+                            <option value="Impact">Impact - Bold</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>🌈 Text Color</label>
+                        <input type="color" id="color-select" value="#000000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>📱 Phone Model</label>
+                        <select id="phone-model">
+                            <option value="iPhone">iPhone 14/15</option>
+                            <option value="Android">Android Flagship</option>
+                            <option value="Samsung">Samsung Galaxy</option>
+                            <option value="Pixel">Google Pixel</option>
+                        </select>
+                    </div>
+
+                    <div id="price-display">Total Price: $15</div>
+
+                    <button id="add-to-cart" class="cta-button" style="width: 100%; text-align: center;">
+                        🛒 Add to Cart
+                    </button>
+
+                    <a href="shop.html" class="cta-button btn-secondary" style="width: 100%; text-align: center; display: block;">
+                        ← Back to Shop
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 TechUse. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

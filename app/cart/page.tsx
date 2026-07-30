@@ -80,7 +80,7 @@ export default function CartPage() {
         description: "Something went wrong while placing your order. Please try again.",
         variant: "destructive",
       });
-    } fontally {
+    } finally {
       setIsSubmitting(false);
     }
   };

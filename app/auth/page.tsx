@@ -53,23 +53,23 @@ export default function AuthPage() {
         }
         const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
         
-        // Write to users collection
         await setDoc(doc(db, "users", userCredential.user.uid), {
           uid: userCredential.user.uid,
           name: data.name,
           email: data.email,
-          role: "user", // Default role
+          role: "user",
           createdAt: Date.now(),
         });
         
         toast({ title: "Account created successfully!" });
       }
       router.push("/");
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error(error);
+      const err = error as { message?: string };
       toast({
         title: "Authentication Failed",
-        description: error.message || "Please check your credentials and try again.",
+        description: err.message || "Please check your credentials and try again.",
         variant: "destructive",
       });
     } finally {
@@ -87,7 +87,7 @@ export default function AuthPage() {
           <CardDescription className="text-center">
             {isLogin
               ? "Enter your credentials to access your account."
-              : "Sign up to start shopping for lovely crochet items."}
+              : "Sign up to start shopping for luxury items."}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -161,7 +161,7 @@ export default function AuthPage() {
           </div>
           
           <div className="mt-4 text-xs text-center text-muted-foreground bg-muted p-2 rounded">
-            <strong>Setup Note:</strong> To make the first manager, manually change the role to <code>"manager"</code> in Firestore.
+            <strong>Setup Note:</strong> To make the first manager, manually change the role to &quot;manager&quot; in Firestore.
           </div>
         </CardContent>
       </Card>

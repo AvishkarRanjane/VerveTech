@@ -16,7 +16,7 @@ import { Separator } from "@/components/ui/separator";
 import { Loader2, ShoppingBag, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { db } from "@/lib/firebase";
-import { collection, setDoc, doc } from "firebase/firestore";
+import { setDoc, doc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { useToast } from "@/hooks/use-toast";
 
@@ -62,17 +62,14 @@ export default function CartPage() {
         createdAt: Date.now(),
       };
 
-      // 1. Write to Firestore
       await setDoc(doc(db, "orders", orderId), orderPayload);
 
-      // 2. Redirect user directly to WhatsApp with pre-filled message
       const itemsList = items.map(i => `- ${i.quantity}x ${i.title} (₹${i.price})`).join('\n');
       const message = `🛒 *New Order!*\n\n*Customer:* ${data.customerName}\n*Phone:* ${data.customerPhone}\n*Address:* ${data.customerAddress}\n\n*Items:*\n${itemsList}\n\n*Total:* ₹${cartTotal}\n*Order ID:* ${orderId}`;
       
       const whatsappUrl = `https://wa.me/919372889465?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
 
-      // 3. Clear Cart & Show Modal
       clearCart();
       setIsModalOpen(true);
       
@@ -83,7 +80,7 @@ export default function CartPage() {
         description: "Something went wrong while placing your order. Please try again.",
         variant: "destructive",
       });
-    } finally {
+    } fontally {
       setIsSubmitting(false);
     }
   };
@@ -95,7 +92,7 @@ export default function CartPage() {
           <ShoppingBag className="w-10 h-10 text-muted-foreground" />
         </div>
         <h2 className="text-3xl font-serif font-bold text-foreground mb-4">Your cart is empty</h2>
-        <p className="text-muted-foreground mb-8 max-w-md">Looks like you haven't added any beautiful crochet items to your cart yet.</p>
+        <p className="text-muted-foreground mb-8 max-w-md">Looks like you haven&apos;t added any items to your cart yet.</p>
         <Link href="/shop">
           <Button size="lg" className="rounded-full px-8">
             Start Shopping <ArrowRight className="w-4 h-4 ml-2" />
@@ -110,7 +107,6 @@ export default function CartPage() {
       <h1 className="text-4xl font-serif font-bold text-foreground mb-10">Checkout</h1>
       
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {/* Cart Items */}
         <div className="lg:col-span-7 xl:col-span-8">
           <div className="bg-card border rounded-2xl p-6 md:p-8">
             <h2 className="text-xl font-semibold mb-6 flex items-center justify-between">
@@ -127,7 +123,6 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* Checkout Form & Summary */}
         <div className="lg:col-span-5 xl:col-span-4">
           <div className="bg-card border rounded-2xl p-6 md:p-8 sticky top-24">
             <h2 className="text-xl font-semibold mb-6">Order Summary</h2>

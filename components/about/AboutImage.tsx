@@ -15,7 +15,6 @@ export default function AboutImage() {
   const { toast } = useToast();
   const [isUploading, setIsUploading] = useState(false);
 
-  // Use draft value if it exists, otherwise use saved setting
   const imageUrl = draftSettings?.aboutImageUrl !== undefined 
     ? draftSettings.aboutImageUrl 
     : settings?.aboutImageUrl;
@@ -47,7 +46,7 @@ export default function AboutImage() {
         />
       ) : (
         <div className="w-full h-full bg-secondary/30 flex items-center justify-center text-muted-foreground p-8 text-center">
-          <span className="font-serif italic text-2xl opacity-50">"Stitching memories with every yarn."</span>
+          <span className="font-serif italic text-2xl opacity-50">&quot;Precision-engineered for perfection.&quot;</span>
         </div>
       )}
 

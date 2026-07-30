@@ -24,7 +24,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const { settings } = useSettings();
   const { itemCount } = useCartStore();
-  const { user, isManager, isUser } = useRole();
+  const { isManager, isUser } = useRole();
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -40,14 +40,13 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 w-full bg-background/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         
-        {/* Logo & Name */}
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2">
             {settings?.logoUrl ? (
               <img src={settings.logoUrl} alt="Logo" className="h-8 w-8 object-contain rounded-full" />
             ) : (
               <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center text-primary-foreground font-serif font-bold text-xl">
-                {settings?.websiteName.charAt(0) || "H"}
+                {settings?.websiteName.charAt(0) || "V"}
               </div>
             )}
           </Link>
@@ -57,7 +56,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
@@ -72,7 +70,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Actions */}
         <div className="flex items-center gap-4">
           <Link href="/cart">
             <Button variant="ghost" size="icon" className="relative">
@@ -118,7 +115,6 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* Mobile Menu Toggle */}
           <Button variant="ghost" size="icon" className="md:hidden">
             <Menu className="w-5 h-5" />
           </Button>

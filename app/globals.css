@@ -1,0 +1,98 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --background: 40 20% 98%;
+    --foreground: 24 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 40 20% 98%;
+
+    --secondary: 30 15% 94%;
+    --secondary-foreground: 24 10% 10%;
+
+    --muted: 30 10% 95%;
+    --muted-foreground: 24 5% 45%;
+
+    --accent: 155 35% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 30 10% 90%;
+    --input: 30 10% 90%;
+    --ring: 38 92% 50%;
+
+    --radius: 1.25rem;
+  }
+
+  .dark {
+    --background: 24 10% 8%;
+    --foreground: 40 20% 98%;
+
+    --card: 24 10% 12%;
+    --card-foreground: 40 20% 98%;
+
+    --popover: 24 10% 12%;
+    --popover-foreground: 40 20% 98%;
+
+    --primary: 38 92% 50%;
+    --primary-foreground: 24 10% 8%;
+
+    --secondary: 24 10% 16%;
+    --secondary-foreground: 40 20% 98%;
+
+    --muted: 24 10% 16%;
+    --muted-foreground: 24 5% 65%;
+
+    --accent: 155 35% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 24 10% 20%;
+    --input: 24 10% 20%;
+    --ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Apple Glassmorphism Utility Classes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 231, 235, 0.6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.smooth-spring {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}

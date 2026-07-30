@@ -43,13 +43,13 @@ export default function FeaturedProducts() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
           <div>
-            <span className="text-xs font-semibold text-amber-700 uppercase tracking-widest">Handcrafted Essentials</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-foreground mt-1">Featured Creations</h2>
-            <p className="text-muted-foreground mt-1">Our most loved artisanal crochet items.</p>
+            <span className="text-xs font-bold text-primary uppercase tracking-widest">Precision Innovations</span>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mt-1">Featured Accessories</h2>
+            <p className="text-muted-foreground mt-1">Flagship titanium protection and MagSafe wireless charging.</p>
           </div>
           <Link href="/shop">
             <Button variant="outline" className="rounded-full px-6 border-border/80 hover:bg-muted group">
-              Explore All Shop Items
+              Explore Catalog
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

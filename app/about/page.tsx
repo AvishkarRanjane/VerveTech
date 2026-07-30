@@ -8,7 +8,7 @@ export default function AboutPage() {
       
       {/* Header */}
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-4">Our Story</h1>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">Our Story</h1>
         <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
       </div>
 
@@ -30,7 +30,7 @@ export default function AboutPage() {
       {/* FAQ Section */}
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-serif font-bold text-foreground">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Frequently Asked Questions</h2>
         </div>
         <FaqAccordion />
       </div>

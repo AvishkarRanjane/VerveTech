@@ -112,12 +112,12 @@ export default function ShopPage() {
     <div className="container mx-auto px-4 py-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 text-amber-800 text-xs font-semibold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider mb-2">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>KnitAura Collection</span>
+            <span>VerveTech Cyber Collection</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold text-foreground">Artisanal Shop</h1>
-          <p className="text-muted-foreground mt-1">Discover handcrafted luxury crochet, cozy apparel, and sustainable home decor.</p>
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">Accessories Catalog</h1>
+          <p className="text-muted-foreground mt-1">Discover precision-engineered titanium cases, MagSafe wireless chargers, and custom 3D skins.</p>
         </div>
         
         {isManager && (

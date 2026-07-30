@@ -24,7 +24,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   const displayImage = !imageError && product.imageUrl 
     ? product.imageUrl 
-    : "/assets/images/crochet-tote-bag.png";
+    : "/assets/images/titanium-case.png";
 
   const handleAddToCart = () => {
     if (product.stock <= 0) return;
@@ -60,7 +60,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <>
-      <Card className="overflow-hidden group flex flex-col h-full rounded-2xl border border-border/60 hover:border-amber-500/30 hover:shadow-xl hover:shadow-amber-500/5 transition-all duration-300 bg-card">
+      <Card className="overflow-hidden group flex flex-col h-full rounded-2xl border border-border/60 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 bg-card">
         <div className="relative aspect-square overflow-hidden bg-muted/40">
           <img 
             src={displayImage} 
@@ -71,7 +71,7 @@ export default function ProductCard({ product }: { product: Product }) {
           
           <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
             {product.isBestSeller && (
-              <Badge variant="secondary" className="bg-white/90 text-amber-800 hover:bg-white border-none shadow-sm backdrop-blur-sm text-xs font-semibold px-2.5 py-0.5 rounded-full">
+              <Badge variant="secondary" className="bg-primary/90 text-primary-foreground hover:bg-primary border-none shadow-sm backdrop-blur-sm text-xs font-semibold px-2.5 py-0.5 rounded-full">
                 Best Seller
               </Badge>
             )}
@@ -101,8 +101,8 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
 
         <CardContent className="p-5 flex-1 flex flex-col">
-          <div className="text-[11px] font-semibold text-amber-700 uppercase tracking-wider mb-1.5">{product.category || "Crochet"}</div>
-          <h3 className="font-serif font-bold text-lg text-foreground line-clamp-1 mb-2 group-hover:text-amber-700 transition-colors" title={product.title}>
+          <div className="text-[11px] font-bold text-primary uppercase tracking-wider mb-1.5">{product.category || "Accessories"}</div>
+          <h3 className="font-bold text-lg text-foreground line-clamp-1 mb-2 group-hover:text-primary transition-colors" title={product.title}>
             {product.title}
           </h3>
           <p className="text-sm text-muted-foreground line-clamp-2 mb-4 flex-1 leading-relaxed">

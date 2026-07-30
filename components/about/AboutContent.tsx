@@ -13,7 +13,7 @@ export default function AboutContent() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="prose prose-lg dark:prose-invert max-w-none font-serif text-lg leading-loose text-muted-foreground"
+        className="prose prose-lg dark:prose-invert max-w-none font-sans text-lg leading-relaxed text-muted-foreground"
       >
         <InlineEdit 
           settingKey="aboutText" 

@@ -47,7 +47,7 @@ export default function ProductForm({
   const [imagePreview, setImagePreview] = useState<string | null>(product?.imageUrl || null);
 
   const form = useForm<ProductFormValues>({
-    resolver: zodResolver(productSchema) as any,
+    resolver: zodResolver(productSchema),
     defaultValues: {
       title: product?.title || "",
       description: product?.description || "",

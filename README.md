@@ -4,7 +4,7 @@
   # VerveTech 📱⚡
   ### Apple-Inspired Luxury Tech Accessories & Customization Studio
 
-  [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vervetech.vercel.app)
+  [![Vercel Deployment](https://img.shields.io/badge/Vercel-Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://tech-use.vercel.app)
   [![Framework: Next.js 14](https://img.shields.io/badge/Next.js-14_App_Router-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org)
   [![Styling: Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
   [![Backend: Firebase](https://img.shields.io/badge/Backend-Firebase_v10-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com)
